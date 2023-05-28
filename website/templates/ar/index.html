@@ -1,0 +1,25 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=">
+
+    <title>Document</title>
+</head>
+<body>
+    {% get_available_languages as LANGUAGES %}
+{% for lang in LANGUAGES %}
+{% if LANGUAGE_CODE == lang.0 %}
+{{lang.1}} ({{lang.0}})
+{% else %}
+<a href="{% url 'set_language' %}?l={{lang.0}}">{{lang.1}} ({{lang.0}})</a>
+{% endif %} |
+{% endfor %}
+   {% trans "password" %} 
+   {{ request.get_host }}
+   <p>صفحة عربية</p>
+</body>
+</html>
